@@ -11,7 +11,7 @@
 #
 
 include(vcpkg_common_functions)
-set(SOURCE_PATH ${CURRENT_BUILDTREES_DIR}/src/geographiclib-1.47)
+set(SOURCE_PATH ${CURRENT_BUILDTREES_DIR}/src/GeographicLib-1.47)
 vcpkg_download_distfile(ARCHIVE
     URLS "https://jaist.dl.sourceforge.net/project/geographiclib/distrib/GeographicLib-1.47-patch1.zip"
     FILENAME "geographiclib-1.47-patch1.zip"
@@ -20,7 +20,10 @@ vcpkg_download_distfile(ARCHIVE
 vcpkg_extract_source_archive(${ARCHIVE})
 vcpkg_apply_patches(
     SOURCE_PATH ${SOURCE_PATH}
-    PATCHES "${CMAKE_CURRENT_LIST_DIR}/remove-tools-and-fix-version.patch"
+    PATCHES
+    "${CMAKE_CURRENT_LIST_DIR}/remove-tools-and-fix-version.patch"
+    "${CMAKE_CURRENT_LIST_DIR}/remove-missing-dependency.patch"
+    "${CMAKE_CURRENT_LIST_DIR}/disable-common-install-path.patch"
 )
 
 if(VCPKG_LIBRARY_LINKAGE STREQUAL dynamic)

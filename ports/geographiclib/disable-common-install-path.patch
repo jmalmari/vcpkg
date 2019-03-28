@@ -1,0 +1,17 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 080b89d..b63cf3c 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -60,11 +60,7 @@ cmake_minimum_required (VERSION 2.8.4) # This version was released 2011-02-16
+ # depend on the variable with deeper paths relative to
+ # CMAKE_INSTALL_PREFIX being used when it's ON.
+ 
+-if (WIN32)
+-  option (COMMON_INSTALL_PATH "Use a common installation path for packages" OFF)
+-else ()
+-  option (COMMON_INSTALL_PATH "Use a common installation path for packages" ON)
+-endif ()
++option (COMMON_INSTALL_PATH "Use a common installation path for packages" OFF)
+ 
+ # (2) PACKAGE_PATH and INSTALL_PATH have now been removed
+ 
